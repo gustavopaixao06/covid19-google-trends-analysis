@@ -191,7 +191,7 @@ Mudanças de comportamento populacional ao longo dos anos.
 
 ▶️ Como Reproduzir o Projeto
 1. Clone o repositório
-git clone https://github.com/SEU-USUARIO/covid-google-trends.git
+git clone https://github.com/gustavopaixao06/covid-google-trends.git
 cd covid-google-trends
 
 2. Instale as dependências
