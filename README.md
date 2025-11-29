@@ -59,10 +59,6 @@ As buscas online aumentam antes da confirmação oficial dos casos, funcionando 
 ├── 📁 notebooks/
 │   └── 📓 analise_covid_trends_sp_corrigido_final.ipynb   # Notebook principal da análise
 │
-├── 📁 docs/
-│   ├── 📄 Template_ResumoExpandido2025_Covid.docx
-│   └── 📄 Apresentacao_Senai_S_C_.pptx
-│
 └── 📘 README.md     # Este arquivo
 ```
 
