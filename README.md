@@ -1,6 +1,34 @@
 📘 Vigilância Digital da COVID-19 em São Paulo (2020–2025) usando Google Trends
 Análise Estatística, Modelagem Temporal e Evidências de Antecipação de Casos
-📌 Descrição Geral
+🏷️ Badges
+<p> <img src="https://img.shields.io/badge/Python-3.12-blue.svg" /> <img src="https://img.shields.io/badge/Status-Concluído-brightgreen" /> <img src="https://img.shields.io/badge/License-MIT-yellow.svg" /> <img src="https://img.shields.io/badge/Data%20Science-Project-orange" /> <img src="https://img.shields.io/badge/Google%20Trends-Analysis-red" /> </p>
+📑 SUMÁRIO
+
+📘 Descrição Geral
+
+🧭 Objetivo do Projeto
+
+📂 Estrutura do Repositório
+
+🔍 Fontes de Dados
+
+🧪 Metodologia
+
+📊 Resultados Principais
+
+🧠 Conclusões do Estudo
+
+⚠️ Limitações
+
+▶️ Como Reproduzir o Projeto
+
+📝 Licença
+
+👥 Autores
+
+🙏 Agradecimentos
+
+📘 Descrição Geral
 
 Este repositório documenta todo o processo científico utilizado para desenvolver o estudo:
 
@@ -8,186 +36,185 @@ Este repositório documenta todo o processo científico utilizado para desenvolv
 
 O projeto investiga se dados de busca online — especialmente o termo “covid-19” — podem antecipar surtos epidemiológicos reais, funcionando como ferramenta complementar aos sistemas tradicionais de vigilância em saúde.
 
-Este trabalho foi desenvolvido para apresentação e submissão a revista científica do SENAI.
+Este trabalho foi desenvolvido para apresentação e submissão à Revista Científica do SENAI.
 
 🧭 Objetivo do Projeto
 
 Avaliar se os dados do Google Trends possuem valor preditivo, isto é, se o aumento de buscas por “covid-19” ocorre antes dos aumentos nos casos confirmados de COVID-19 no Estado de São Paulo.
 
-Hipótese central:
+🔍 Hipótese central
 
 As buscas online aumentam antes da confirmação oficial dos casos, funcionando como alerta precoce epidemiológico.
 
 📂 Estrutura do Repositório
-/
-├── data/
-│   ├── casos_sp.csv            # Casos mensais de COVID-19 (Ministério da Saúde)
-│   ├── trends_sp.csv           # Dados Google Trends (COVID-19 - São Paulo)
-│   └── indicadores_industria/  # Dados e relatórios usados na análise industrial
-│
-├── notebooks/
-│   └── analise_covid_trends_sp_corrigido_final.ipynb   # Notebook principal
-│
-├── docs/
-│   ├── Template_ResumoExpandido2025_Covid.docx
-│   └── Apresentacao_Senai_S_C_.pptx
-│
-└── README.md   ← ESTE ARQUIVO
+## 📦 Estrutura do Projeto
 
-🔍 Fontes de Dados Utilizadas
-1. Casos Confirmados (Ministério da Saúde)
+```bash
+📦 covid-google-trends
+├── 📁 data/
+│   ├── 📄 casos_sp.csv                  # Casos mensais de COVID-19 (Ministério da Saúde)
+│   ├── 📄 trends_sp.csv                 # Dados do Google Trends (COVID-19 - São Paulo)
+│   └── 📁 indicadores_industria/        # Relatórios CNI, Abiquim, ABIT e dados industriais
+│
+├── 📁 notebooks/
+│   └── 📓 analise_covid_trends_sp_corrigido_final.ipynb   # Notebook principal da análise
+│
+├── 📁 docs/
+│   ├── 📄 Template_ResumoExpandido2025_Covid.docx
+│   └── 📄 Apresentacao_Senai_S_C_.pptx
+│
+└── 📘 README.md     # Este arquivo
+```
+
+🔍 Fontes de Dados
+1. Casos Confirmados – Ministério da Saúde
 
 Período: Jan/2020 a Ago/2025
 
 Frequência: Mensal
 
-Formato bruto → pré-processado no notebook
+Pré-processado no notebook
 
 2. Google Trends
 
-Termo: “covid-19”
+Termo analisado: “covid-19”
 
 Localidade: São Paulo
 
-Escala: 0 a 100 (normalizado)
+Escala: 0 a 100 (normalizada)
 
-Coletado via API do Pytrends
+Coleta: Pytrends
 
-3. Dados Industriais (CNI, Abiquim, ABIT)
+3. Indicadores Industriais (CNI, Abiquim, ABIT)
 
-Usados para contextualizar picos de buscas por:
+Usados para relacionar comportamento digital com:
 
-“álcool em gel”
+picos de interesse por “álcool em gel”
 
-“máscara respiratória”
+picos de interesse por “máscara respiratória”
 
-EPIs e insumos essenciais
+reorganização produtiva durante a pandemia
 
-Esses dados permitiram relacionar comportamentos digitais com impactos produtivos reais.
+🧪 Metodologia
+✔ 1. Pré-Processamento
 
-🧪 Metodologia Completa
-
-A análise seguiu rigor metodológico, replicável via notebook incluso no repositório.
-
-1. Pré-Processamento
-
-Carregamento dos dados
+Carregamento das bases
 
 Tratamento de inconsistências
 
 Agregação mensal dos casos
 
-Normalização e alinhamento temporal
+Normalização das séries
 
-Suavização com Média Móvel de 3 Meses (MM3) para redução de ruído
+Suavização usando Média Móvel de 3 Meses (MM3)
 
-2. Análises Estatísticas
-✔ Correlação de Pearson
+✔ 2. Análises Estatísticas
+🔹 Correlação de Pearson
 
-Mede associações lineares
+Avalia associação linear entre casos × buscas.
 
-✔ Correlação de Spearman
+🔹 Correlação de Spearman
 
-Mede associações monotônicas
+Mede relações monotônicas.
 
-✔ Correlação Cruzada (Cross-Correlation)
+🔹 Correlação Cruzada (Cross-Correlation)
 
-Testa defasagem entre as séries (lags)
+Teste de defasagem autocorrelação
 
-Lags testados: -6 a +6 meses
+Lags avaliados: -6 a +6 meses
 
-✔ Causalidade de Granger
+🔹 Causalidade de Granger
 
-Avalia se uma série ajuda a prever a outra
+Testa se uma série prediz a outra
 
-Defasagens avaliadas: 1 a 3 meses
+Lags avaliados: 1 a 3
 
-3. Ferramentas e Tecnologias
+✔ 3. Tecnologias Utilizadas
 
 Python 3.12
 
-Pandas — manipulação de dados
+Pandas
 
-NumPy — vetorização
+NumPy
 
-Matplotlib — visualização
+Matplotlib
 
-SciPy — estatística
+SciPy
 
-Statsmodels — causalidade & séries temporais
+Statsmodels
 
-Pytrends — coleta de tendências Google
+Pytrends
 
-📊 Principais Resultados
-1. Evolução Temporal (Casos × Google Trends)
+📊 Resultados Principais
+1. Evolução Temporal
 
-Padrões muito semelhantes foram observados:
+Padrões semelhantes entre:
 
-Picos de casos em 2020 e 2021
+📈 Casos confirmados
+📉 Interesse no Google Trends
 
-Picos de interesse no Google quase simultâneos
+Picos de 2020 e 2021 visíveis em ambas as séries
 
-Alta sensibilidade da população ao agravamento da pandemia
+Alta sensibilidade às ondas da pandemia
 
 2. Correlações
 Comparação	Pearson	Spearman
 Casos × Trends	0.74	0.80
 Casos_MM3 × Trends_MM3	0.83	0.91
 
-🟢 Conclusão: Com suavização, as séries mostram correlação forte e consistente.
+🟢 Conclusão: com suavização, a relação entre as séries fica ainda mais forte.
 
-3. Correlação Cruzada (Lag Analysis)
+3. Análise de Defasagem (Lag)
 
 Maior correlação ocorre em:
-lag = +1 mês
 
-Significa que o Google Trends antecipa os picos de casos em cerca de 30 dias.
+➤ lag = +1 mês
 
-🔔 Alerta epidemiológico antecipado.
+Interpretado como:
+
+📌 Google Trends antecipa a evolução dos casos em aproximadamente 30 dias.
 
 4. Causalidade de Granger
 
-Foi encontrada causalidade bidirecional com p < 0.05
-→ As buscas influenciam os casos futuros
-→ Os casos influenciam um novo aumento nas buscas
+Causalidade bidirecional (p < 0.05)
 
-5. Efeitos Industriais (álcool em gel & máscaras)
+Buscas → ajudam a prever casos
 
-Os gráficos mostram:
+Casos → estimulam novas buscas
 
-Picos de busca por “álcool em gel” → explosão de demanda industrial
+5. Impacto Industrial
 
-Picos de “máscara respiratória” → reorientação das fábricas têxteis para EPIs
+Aumento abrupto nas buscas coincide com:
 
-Reflete:
+Explosão da demanda de álcool em gel
 
-ruptura da cadeia produtiva,
+Reorientação das fábricas têxteis para máscaras
 
-escassez de insumos,
+Escassez de produtos essenciais
 
-adaptações rápidas da indústria nacional.
+Ruptura da cadeia produtiva
 
-🧠 Conclusões Gerais
+🧠 Conclusões do Estudo
 
 O Google Trends funciona como indicador complementar de vigilância epidemiológica.
 
-Há evidência robusta de que as buscas antecipam os surtos em São Paulo.
+Há evidência sólida de que as buscas antecipam surtos no Estado de São Paulo.
 
-As séries digitais captam percepção de risco da população antes dos registros oficiais.
+Dados digitais captam percepção de risco da população antes dos registros oficiais.
 
-Indicadores online podem fornecer semanas de vantagem estratégica para a gestão pública.
+Podem fornecer semanas de vantagem estratégica à gestão pública.
 
-O cruzamento entre dados digitais + epidemiológicos melhora a detecção precoce.
+Combinação de dados tradicionais + digitais melhora detecção precoce.
 
-⚠️ Limitações do Estudo
+⚠️ Limitações
 
-Índice do Google Trends é normalizado (não absoluto).
+Escala do Trends é normalizada, não absoluta
 
-Cobertura midiática influencia picos de buscas.
+Cobertura midiática influencia buscas
 
-Subnotificação de casos no início da pandemia.
+Subnotificação nos primeiros meses da pandemia
 
-Mudanças de comportamento populacional ao longo dos anos.
+Mudanças de comportamento ao longo dos anos
 
 ▶️ Como Reproduzir o Projeto
 1. Clone o repositório
@@ -206,21 +233,22 @@ Este projeto está licenciado sob a MIT License.
 Uso livre para fins educacionais e científicos.
 
 👥 Autores
-
 Gustavo Campos da Paixão
-Graduando em Inteligência e Análise de Dados – SENAI
-Experiência em Python, Data Analysis, MongoDB, SQL, Power BI
+
+Graduando em Inteligência e Análise de Dados — SENAI
+Experiência em Python, SQL, MongoDB, Power BI
 
 Evandro Miguel Martins Sperandio
-Graduando em Inteligência e Análise de Dados – SENAI
-Formação técnica em Desenvolvimento de Sistemas – SENAI
+
+Graduando em Inteligência e Análise de Dados — SENAI
+Formação técnica em Desenvolvimento de Sistemas
 
 🙏 Agradecimentos
 
 SENAI Suíço-Brasileira “Paulo Ernesto Tolle”
 
-Equipes responsáveis pelas bases oficiais de saúde
+Bases oficiais de saúde pública
 
-Professores orientadores do projeto
+Professores e orientadores
 
-Comunidade de dados que manteve repositórios ativos durante a pandemia
+Comunidade científica e de dados durante a pandemia
